@@ -17,6 +17,11 @@ entryPoints:
       insecure: {{ $options.forwarded_headers_insecure }}
 {{- end }}
 
+{{- if has $options "insecure_skip_verfy" }}
+serversTransport:
+  insecureSkipVerify: {{ $options.insecure_skip_verfy }}
+{{- end }}
+
 api:
   dashboard: true
   insecure: true
